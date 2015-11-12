@@ -6,6 +6,7 @@
 package com.mycompany.proyecto_tienda;
 
 import java.util.ArrayList;
+import spring_rest.*;
 
 /**
  *
@@ -14,10 +15,27 @@ import java.util.ArrayList;
 public class TiendaOnline {
     private ArrayList<Usuario> listaUsuarios;
     private ArrayList<Producto> listaProductos;
+    private DAO dao;
     
     public TiendaOnline(){
-        listaUsuarios=new ArrayList();
-        listaProductos=new ArrayList();
+        cargarListaUsuarios();
+        cargarListaProductos();
+    }
+    
+    public void cargarListaUsuarios(){
+        listaUsuarios=dao.cargarUsuarios();
+    }
+    
+    public void cargarListaProductos(){
+        listaProductos=dao.cargarProductos();
+    }
+    
+    public void agregarProductoCarrito(String usuario, Producto producto){
+        for(int cont=0;cont>listaUsuarios.size();cont++){
+            if(usuario.equals(listaUsuarios.get(cont).getNombre())){
+                listaUsuarios.get(cont).agregarAlCarrito(producto);
+            }
+        }
     }
     
 }

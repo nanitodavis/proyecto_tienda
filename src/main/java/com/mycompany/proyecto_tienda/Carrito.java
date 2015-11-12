@@ -17,4 +17,29 @@ public class Carrito {
     public Carrito(){
         listaProductos = new ArrayList<Producto>();
     }
+    
+    public int totalPrecioProductos(){
+        int total=0;
+        for(int cont=0;cont<listaProductos.size();cont++){
+            total+=listaProductos.get(cont).getPrecio();
+        }
+        return total;
+    }
+    
+    public void agregarProducto(Producto producto){
+        listaProductos.add(producto);
+    }
+    
+    public void retirarProducto(int codigo){
+        for(int cont=0;cont<listaProductos.size();cont++){
+            if (codigo==listaProductos.get(cont).getCodigo()){
+                listaProductos.remove(listaProductos.get(cont));
+                cont+=listaProductos.size();
+            }
+        }
+    }
+    
+    public void vaciarCarrito(){
+        listaProductos.clear();
+    }
 }

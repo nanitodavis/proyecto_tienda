@@ -15,6 +15,15 @@ public class Usuario {
     
     public Usuario(String nom){
         nombre=nom;
+        carrito = new Carrito();
+    }
+    
+    public void agregarAlCarrito(Producto producto){
+        carrito.agregarProducto(producto);
+    }
+    
+    public void quitarProducto(int codigo){
+        carrito.retirarProducto(codigo);
     }
     
     public void setNombre(String nom){
@@ -23,6 +32,14 @@ public class Usuario {
     
     public String getNombre(){
         return nombre;
+    }
+    
+    public Carrito getCarrito(){
+        return carrito;
+    }
+    
+    public void setCarrito(Carrito carrito){
+        this.carrito=carrito;
     }
     
 }
