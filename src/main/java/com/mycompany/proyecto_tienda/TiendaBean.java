@@ -5,6 +5,7 @@
  */
 package com.mycompany.proyecto_tienda;
 
+import spring_rest.TiendaOnline;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -15,5 +16,18 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class TiendaBean {
-    TiendaOnline tienda;
+    private TiendaOnline tienda = new TiendaOnline();
+    
+    public String totalCarrito(){
+        String res=""+tienda.getUsuarioActual().getCarrito().totalPrecioProductos();
+        return res;
+    }
+    
+    public TiendaOnline getTienda(){
+        return tienda;
+    }
+    
+    public void setTienda(TiendaOnline tienda){
+        this.tienda = tienda;
+    }
 }

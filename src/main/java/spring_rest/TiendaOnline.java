@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.proyecto_tienda;
+package spring_rest;
 
 import java.util.ArrayList;
 import spring_rest.*;
@@ -16,10 +16,12 @@ public class TiendaOnline {
     private ArrayList<Usuario> listaUsuarios;
     private ArrayList<Producto> listaProductos;
     private DAO dao;
+    private Usuario usuarioActual;
     
     public TiendaOnline(){
-        cargarListaUsuarios();
-        cargarListaProductos();
+        //cargarListaUsuarios();
+        //cargarListaProductos();
+        usuarioActual=new Usuario("gisell");
     }
     
     public void cargarListaUsuarios(){
@@ -37,5 +39,11 @@ public class TiendaOnline {
             }
         }
     }
+    public void setUsuarioActual(Usuario usuario){
+        usuarioActual = usuario;
+    }
     
+    public Usuario getUsuarioActual(){
+        return usuarioActual;
+    }
 }
