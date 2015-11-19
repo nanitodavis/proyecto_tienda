@@ -22,3 +22,33 @@
         <welcome-file>faces/login.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>
+<!--<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                            http://www.springframework.org/schema/tx
+                            http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="aretico.com"/>
+        <property name="port" value="5432"/>
+        <property name="username" value="software2"/>
+        <property name="password" value="########"/>
+    </bean>
+
+    <context:component-scan base-package="ca.credativ.jdbc" />
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+
+    //PlatformTransactionManager is still required
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        //(this dependency is defined somewhere else) 
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+</beans>-->
