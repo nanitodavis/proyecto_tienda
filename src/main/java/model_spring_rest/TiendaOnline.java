@@ -51,9 +51,16 @@ public class TiendaOnline {
     }
     
     public void registrarUsuario(String nombre){
-        Usuario temp = new Usuario(nombre);
-        listaUsuarios.add(temp);
-        usuarioActual=temp;
+        for(int cont=0;cont<listaUsuarios.size();cont++){
+            if(nombre.equals(listaUsuarios.get(cont).getNombre())){
+                usuarioActual=listaUsuarios.get(cont);
+            }
+            else{
+                Usuario temp = new Usuario(nombre);
+                listaUsuarios.add(temp);
+                usuarioActual=temp;
+            }
+        }
     }
     
     public void cambiarUsuarioAtual(String nombre){
