@@ -8,14 +8,14 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-    <head>
+    <h:head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
+    </h:head>
+    <h:body>
         <h:form>
-        <p:commandButton action="index.xhtml?faces-redirect=true" ajax="false" value="login"/>
+            <p:inputText value="#{tiendaBean.temporal}">nombre de usuario: </p:inputText>
+            <p:commandButton action="index.xhtml?faces-redirect=true" ajax="false" value="login"/><p:commandButton action="index.xhtml?faces-redirect=true" ajax="false" value="register" actionListener="#{tiendaBean.registrarBean()}"/>
         </h:form>
-    </body>
+    </h:body>
 </html>

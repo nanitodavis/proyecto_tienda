@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spring_rest;
+package model_spring_rest;
 
 import java.util.ArrayList;
 

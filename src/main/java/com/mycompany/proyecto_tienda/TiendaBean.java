@@ -5,7 +5,7 @@
  */
 package com.mycompany.proyecto_tienda;
 
-import spring_rest.TiendaOnline;
+import model_spring_rest.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -17,10 +17,44 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class TiendaBean {
     private TiendaOnline tienda = new TiendaOnline();
+    private String temporal="";
     
     public String totalCarrito(){
         String res=""+tienda.getUsuarioActual().getCarrito().totalPrecioProductos();
         return res;
+    }
+    
+    public void loginBean(){
+        cambiarUsuario(temporal);
+    }
+    
+    public void registrarBean(){
+        registrarUsuario(temporal);
+    }
+    
+    public String getTemporal(){
+        return temporal;
+    }               
+    
+    public void setTemporal(String temp){
+        temporal=temp;
+    }
+            
+    public void registrarUsuario(String nombre){
+        tienda.registrarUsuario(nombre);
+    }
+    
+    public void cambiarUsuario(String nombre){
+        tienda.cambiarUsuarioAtual(nombre);
+    }
+    
+    public String getNombreProducto(int pos){
+        return tienda.getNombreProducto(pos);
+    }
+    
+    public void agregarACarrito(int pos){
+        tienda.agregarProductoCarrito(tienda.getListaProducto().get(pos));
+        //tienda.actualizarUsuario(tienda.getUsuarioActual());
     }
     
     public TiendaOnline getTienda(){

@@ -3,14 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spring_rest;
+package model_spring_rest;
 import com.mycompany.proyecto_tienda.*;
 import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
  * @author nanito
  */
+@Configuration
 public class DAO {
     
     public DAO(){
