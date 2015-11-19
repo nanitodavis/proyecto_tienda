@@ -15,7 +15,7 @@ and open the template in the editor.
     <h:body>
         <h:form>
             <p:inputText value="#{tiendaBean.temporal}">nombre de usuario: </p:inputText>
-            <p:commandButton action="index.xhtml?faces-redirect=true" ajax="false" value="login"/><p:commandButton action="index.xhtml?faces-redirect=true" ajax="false" value="register" actionListener="#{tiendaBean.registrarBean()}"/>
+            <p:commandButton action="index.xhtml?faces-redirect=true" ajax="false" value="login" actionListener="#{tiendaBean.loginBean()}"/><p:commandButton action="index.xhtml?faces-redirect=true" ajax="false" value="register" actionListener="#{tiendaBean.registrarBean()}"/>
         </h:form>
     </h:body>
 </html>

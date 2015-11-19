@@ -15,7 +15,10 @@ and open the template in the editor.
     <h:body>
         <p:panel header="Tienda Online">
             <p>Bienvenido: </p><p:outputLabel id="Usuario" value="#{tiendaBean.tienda.usuarioActual.nombre}"/>
-        </p:panel>    
+            <br></br>
+        </p:panel>
+        <p:inputText value="#{tiendaBean.temporal}"></p:inputText><p:commandButton value="cambiar usuario" actionListener="#{tiendaBean.loginBean()}" update="Usuario"/>
+            
         <p:panel>
             <p:outputLabel id="total" value="#{tiendaBean.totalCarrito()}"/><p:commandButton id="actualizar" value="total" actionListener="#{tiendaBean.totalCarrito()}" update="total" />
         </p:panel>
