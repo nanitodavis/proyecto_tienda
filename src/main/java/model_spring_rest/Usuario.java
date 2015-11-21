@@ -15,7 +15,6 @@ public class Usuario {
     
     public Usuario(String nom){
         nombre=nom;
-        carrito = new Carrito();
     }
     
     public void agregarAlCarrito(Producto producto){
@@ -38,8 +37,8 @@ public class Usuario {
         return carrito;
     }
     
-    public void setCarrito(Carrito carrito){
-        this.carrito=carrito;
+    public void setCarrito(int cod){
+        this.carrito=new Carrito(cod);
     }
     
 }

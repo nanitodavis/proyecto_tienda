@@ -12,10 +12,17 @@ import java.util.ArrayList;
  * @author nanito
  */
 public class Carrito {
+    private int codigo;
     private ArrayList<Producto> listaProductos;
     
-    public Carrito(){
+    public Carrito(int cod){
+        codigo=cod;
         listaProductos = new ArrayList<Producto>();
+    }
+    public Carrito(){
+        codigo=0;
+        listaProductos = new ArrayList<Producto>();
+        
     }
     
     public int totalPrecioProductos(){
@@ -37,6 +44,14 @@ public class Carrito {
                 cont+=listaProductos.size();
             }
         }
+    }
+    
+    public void setCodigo(int cod){
+        codigo=cod;
+    }
+    
+    public int getCodigo(){
+        return codigo;
     }
     
     public void vaciarCarrito(){

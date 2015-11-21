@@ -6,6 +6,8 @@
 package model_spring_rest;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -23,10 +25,25 @@ public class TiendaOnline {
     public TiendaOnline(){
         listaProductos=new ArrayList<Producto>();
         listaUsuarios=new ArrayList<Usuario>();
+        dao = new GeneralDAO();
+        try {
+            /*try {
+            Class.forName("org.postgresql.Driver").newInstance();
+            //on classpath
+            } catch(ClassNotFoundException e) {
+            // not on classpath
+            }
+            ctx= new ClassPathXmlApplicationContext("jdbc.xml");
+            dao = ctx.getBean("generalDAO", GeneralDAO.class);*/
+            cargarListaProductos();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TiendaOnline.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(TiendaOnline.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(TiendaOnline.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //cargarListaUsuarios();
-        ctx= new ClassPathXmlApplicationContext("Web Pages/WEB-INF/jdbc.xml");
-        dao = ctx.getBean("generalDAO", GeneralDAO.class);
-        cargarListaProductos();
         usuarioActual=new Usuario("gisell");
         listaUsuarios.add(usuarioActual);
         Producto p1 = new Producto("zapatos", 1, 20000);
@@ -43,7 +60,7 @@ public class TiendaOnline {
         return listaProductos;
     }
     
-    public void cargarListaUsuarios(){
+    public void cargarListaUsuarios() throws ClassNotFoundException{
         listaUsuarios=dao.getListaUsuario();
     }
     
@@ -92,7 +109,7 @@ public class TiendaOnline {
         return listaProductos.get(pos).getPrecio();
     }
     
-    public void cargarListaProductos(){
+    public void cargarListaProductos() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         listaProductos=dao.getListaProducto();
     }
     

@@ -16,7 +16,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class TiendaBean {
-    private TiendaOnline tienda = new TiendaOnline();
+    private TiendaOnline tienda= new TiendaOnline();
     private String temporal="";
     
     public String totalCarrito(){
