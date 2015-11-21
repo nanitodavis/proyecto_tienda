@@ -44,4 +44,8 @@ public class Producto {
         this.nombre=nombre;
     }
     
+    public String toString(){
+        return ""+nombre+" "+codigo+" "+precio;
+    }
+    
 }

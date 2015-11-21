@@ -6,6 +6,8 @@
 package model_spring_rest;
 
 import java.util.ArrayList;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
@@ -14,16 +16,19 @@ import java.util.ArrayList;
 public class TiendaOnline {
     private ArrayList<Usuario> listaUsuarios;
     private ArrayList<Producto> listaProductos;
-    private DAO dao;
+    private ApplicationContext ctx;
+    private GeneralDAO dao;
     private Usuario usuarioActual;
     
     public TiendaOnline(){
-        //cargarListaUsuarios();
-        //cargarListaProductos();
-        usuarioActual=new Usuario("gisell");
-        listaUsuarios=new ArrayList<Usuario>();
-        listaUsuarios.add(usuarioActual);
         listaProductos=new ArrayList<Producto>();
+        listaUsuarios=new ArrayList<Usuario>();
+        //cargarListaUsuarios();
+        ctx= new ClassPathXmlApplicationContext("Web Pages/WEB-INF/jdbc.xml");
+        dao = ctx.getBean("generalDAO", GeneralDAO.class);
+        cargarListaProductos();
+        usuarioActual=new Usuario("gisell");
+        listaUsuarios.add(usuarioActual);
         Producto p1 = new Producto("zapatos", 1, 20000);
         Producto p2 = new Producto("camisa", 2, 10000);
         Producto p3 = new Producto("gorra", 3, 5000);
@@ -39,7 +44,7 @@ public class TiendaOnline {
     }
     
     public void cargarListaUsuarios(){
-        listaUsuarios=dao.cargarUsuarios();
+        listaUsuarios=dao.getListaUsuario();
     }
     
     public void actualizarUsuario(Usuario usu){
@@ -88,7 +93,7 @@ public class TiendaOnline {
     }
     
     public void cargarListaProductos(){
-        listaProductos=dao.cargarProductos();
+        listaProductos=dao.getListaProducto();
     }
     
     public void agregarProductoCarrito(Producto producto){
