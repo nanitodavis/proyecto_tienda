@@ -33,6 +33,14 @@ public class Carrito {
         return total;
     }
     
+    public ArrayList<Producto> getListaProducto(){
+        return listaProductos;
+    }
+    
+    public void setListaProducto(ArrayList<Producto> lista){
+        listaProductos=lista;
+    }
+    
     public void agregarProducto(Producto producto){
         listaProductos.add(producto);
     }

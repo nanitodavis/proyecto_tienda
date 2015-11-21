@@ -48,6 +48,14 @@ public class TiendaBean {
         tienda.cambiarUsuarioAtual(nombre);
     }
     
+    public int getCantidadProductos(){
+        return tienda.getCantidadProductos();
+    }
+    
+    public int getPrecioProd(int cod){
+        return tienda.getPrecioProducto(cod);
+    }
+    
     public String getNombreProducto(int pos){
         return tienda.getNombreProducto(pos);
     }

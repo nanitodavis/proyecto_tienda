@@ -15,6 +15,7 @@ public class Usuario {
     
     public Usuario(String nom){
         nombre=nom;
+        carrito = new Carrito();
     }
     
     public void agregarAlCarrito(Producto producto){

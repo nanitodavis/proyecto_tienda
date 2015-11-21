@@ -109,6 +109,10 @@ public class TiendaOnline {
         return listaProductos.get(pos).getPrecio();
     }
     
+    public int getCantidadProductos(){
+        return usuarioActual.getCarrito().getListaProducto().size();
+    }
+    
     public void cargarListaProductos() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         listaProductos=dao.getListaProducto();
     }

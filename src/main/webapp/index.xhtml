@@ -14,27 +14,34 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <p:panel header="Tienda Online">
-            <p>Bienvenido: </p><p:outputLabel id="Usuario" value="#{tiendaBean.tienda.usuarioActual.nombre}"/>
+            <p>Bienvenid@: </p><p:outputLabel id="Usuario" value="#{tiendaBean.tienda.usuarioActual.nombre}"/>
             <br></br>
         </p:panel>
             
         <p:panel>
-            <p:outputLabel id="total" value="#{tiendaBean.totalCarrito()}"/><p:commandButton id="actualizar" value="total" actionListener="#{tiendaBean.totalCarrito()}" update="total" />
+            <table>
+                <tr>
+                    <th><p:outputLabel id="total" value="#{tiendaBean.totalCarrito()}"/> <p:commandButton id="actualizar" value="total" actionListener="#{tiendaBean.totalCarrito()}" update="total, cant"  /></th>
+                </tr>
+                <tr>
+                    <th>cantidad de productos: <p:outputLabel id="cant" value="#{tiendaBean.tienda.cantidadProductos}"/></th>
+                </tr>
+            </table>
         </p:panel>
         <p:panel header="Productos">
             <h:form>
                 <table>
                     <tr>
-                        <th><p:outputLabel id="prod1" value="#{tiendaBean.getNombreProducto(0)}"/><p:commandButton id="p1" value="agregar" actionListener="#{tiendaBean.agregarACarrito(0)}"/></th>
+                        <th><p:outputLabel id="prod1" value="#{tiendaBean.getNombreProducto(0)}"/> precio: <p:outputLabel id="pre1" value="#{tiendaBean.getPrecioProd(0)}"/><p:commandButton id="p1" value="agregar" actionListener="#{tiendaBean.agregarACarrito(0)}"/></th>
                     </tr>
                     <tr>
-                        <th><p:outputLabel id="prod2" value="#{tiendaBean.getNombreProducto(1)}"/><p:commandButton id="p2" value="agregar" actionListener="#{tiendaBean.agregarACarrito(1)}"/></th>
+                        <th><p:outputLabel id="prod2" value="#{tiendaBean.getNombreProducto(1)}"/> precio: <p:outputLabel id="pre2" value="#{tiendaBean.getPrecioProd(1)}"/><p:commandButton id="p2" value="agregar" actionListener="#{tiendaBean.agregarACarrito(1)}"/></th>
                     </tr>
                     <tr>
-                        <th><p:outputLabel id="prod3" value="#{tiendaBean.getNombreProducto(2)}"/><p:commandButton id="p3" value="agregar" actionListener="#{tiendaBean.agregarACarrito(2)}"/></th>
+                        <th><p:outputLabel id="prod3" value="#{tiendaBean.getNombreProducto(2)}"/> precio: <p:outputLabel id="pre3" value="#{tiendaBean.getPrecioProd(2)}"/><p:commandButton id="p3" value="agregar" actionListener="#{tiendaBean.agregarACarrito(2)}"/></th>
                     </tr>
                     <tr>
-                        <th><p:outputLabel id="prod4" value="#{tiendaBean.getNombreProducto(3)}"/><p:commandButton id="p4" value="agregar" actionListener="#{tiendaBean.agregarACarrito(3)}"/></th>
+                        <th><p:outputLabel id="prod4" value="#{tiendaBean.getNombreProducto(3)}"/> precio: <p:outputLabel id="pre4" value="#{tiendaBean.getPrecioProd(3)}"/><p:commandButton id="p4" value="agregar" actionListener="#{tiendaBean.agregarACarrito(3)}"/></th>
                     </tr>      
                 </table>
             </h:form>
